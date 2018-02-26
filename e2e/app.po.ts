@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class PublicPage {
+export class SeniorProjectPage {
   navigateTo() {
     return browser.get('/');
   }

@@ -1,0 +1,15 @@
+
+div {
+  /*
+  Height and line-height have to match
+   */
+  height: 100px;
+  line-height: 100px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  /*border: solid black 1px;*/
+
+  color: #76D38F;
+  font-family: Lato;
+}

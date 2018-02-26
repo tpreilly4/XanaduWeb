@@ -1,5 +1,5 @@
 {
-  "name": "public",
+  "name": "senior-project",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -18,10 +18,13 @@
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
+    "@angular/material": "^5.2.2",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angularfire2": "^5.0.0-rc.3",
     "core-js": "^2.4.1",
+    "firebase": "^4.10.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

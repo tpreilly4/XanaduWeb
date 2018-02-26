@@ -1,0 +1,31 @@
+
+div {
+  /*
+  Height and line-height have to match
+   */
+  height: 100%;
+  line-height: 100px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  /*border: solid black 1px;*/
+
+  border-top: 50px solid #3F4942;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  margin-bottom: 20px;
+  font-family: Lato;
+}
+
+#uploadBox {
+  border: 1px dashed black;
+  width: 50%;
+  height: 200px;
+}
+
+#uploadHeader {
+  margin: 0px;
+  padding: 0px;
+  color: #76D38F;
+}
