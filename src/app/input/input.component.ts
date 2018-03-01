@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import * as Tesseract from 'tesseract.js'
+import { DataService } from 'app/data.service';
 
 @Component({
   selector: 'app-input',
@@ -12,9 +13,12 @@ export class InputComponent implements OnInit {
   tesseractProgressName = '...';
   tesseractProgress = 'Upload an Image';
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  newMessage(input: string) {
+    this.data.changeMessage(input);
   }
 
   getPhoto() {
@@ -32,8 +36,9 @@ export class InputComponent implements OnInit {
         }
       }.bind(this))
       .then(function(result) {
-        console.log(result.text)
-      })
+        console.log(result.text);
+        this.newMessage(result.text);
+      }.bind(this))
       .catch(err => {
         console.log('Something went wrong recognizing the text');
       })

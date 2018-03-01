@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-output',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OutputComponent implements OnInit {
 
-  constructor() { }
+  message: string;
+
+  textToDisplay = '';
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.message = message)
+  }
+
+  displayPlainText(input: string) {
+    this.textToDisplay = input;
   }
 
 }
