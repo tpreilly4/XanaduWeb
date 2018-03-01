@@ -1,12 +1,8 @@
 
 <div>
 
-  Xanadu
-
-  <ul>
-    <li *ngFor="let course of courses">
-      {{ course }}
-    </li>
-  </ul>
+  <button class="left" (click)="logout()">Log Out</button>
+  <p class="middle">{{ headerTitle }}</p>
+  <button class="right" (click)="login()">Sign In</button>
 
 </div>

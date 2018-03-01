@@ -3,7 +3,15 @@
 
   <p id="uploadHeader">Upload Your File</p>
 
-  <div id="uploadBox"></div>
+  <div id="uploadBox">
+    <button id="get_file"
+            value="{{ fileNameOutput }}" >
+            <!--(click)="getPhoto()" >-->
+      <img src="assets/uploadImage.jpg" id="blah" alt="your image"/>
+    </button>
+    <input id="my_file" type="file"
+           onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+  </div>
 
 </div>
 

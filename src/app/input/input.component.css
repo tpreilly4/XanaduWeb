@@ -19,6 +19,7 @@ div {
 }
 
 #uploadBox {
+  line-height: 0px;
   border: 1px dashed black;
   width: 50%;
   height: 200px;
@@ -29,3 +30,30 @@ div {
   padding: 0px;
   color: #76D38F;
 }
+
+#my_file {
+  display: none;
+}
+
+#get_file {
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+}
+
+#blah {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+button {
+  color:transparent !important;
+  text-shadow:none !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+
