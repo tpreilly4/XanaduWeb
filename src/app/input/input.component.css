@@ -25,7 +25,7 @@ div {
   height: 200px;
 }
 
-#uploadHeader {
+.uploadHeader {
   margin: 0px;
   padding: 0px;
   color: #76D38F;
@@ -44,7 +44,7 @@ div {
   padding: 0px;
 }
 
-#blah {
+#inputImage {
   width: 100px;
   height: 100px;
   margin: 0;

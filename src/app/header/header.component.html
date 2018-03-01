@@ -1,8 +1,12 @@
 
 <div>
 
-  <button class="left" (click)="logout()">Log Out</button>
-  <p class="middle">{{ headerTitle }}</p>
-  <button class="right" (click)="login()">Sign In</button>
+  <div class="left">
+    <button class="leftButton" (click)="logOut()">Sign Out</button>
+  </div>
+  <p class="middle">Welcome, {{ headerTitle }}</p>
+  <div class="right">
+    <button class="rightButton" (click)="login()">Sign In</button>
+  </div>
 
 </div>

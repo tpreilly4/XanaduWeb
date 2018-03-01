@@ -9,7 +9,8 @@ import * as Tesseract from 'tesseract.js'
 })
 export class InputComponent implements OnInit {
 
-  fileNameOutput = '';
+  tesseractProgressName = '...';
+  tesseractProgress = 'Upload an Image';
 
   constructor() { }
 
@@ -20,22 +21,22 @@ export class InputComponent implements OnInit {
     document.getElementById('my_file').click();
   }
 
-  getText(inputImage: string) {
-    Tesseract.recognize(inputImage)
-      .then(function(result){
-        console.log(result)
+  getPath(event) {
+    Tesseract.recognize(event.target.files[0])
+      .progress(function (p) {
+        if (p.progress == null) {
+          // continue
+        } else {
+          this.tesseractProgressName = p.status;
+          this.tesseractProgress = p.progress.toString();
+        }
+      }.bind(this))
+      .then(function(result) {
+        console.log(result.text)
+      })
+      .catch(err => {
+        console.log('Something went wrong recognizing the text');
       })
   }
-
-  fileEvent(fileInput: Event) {
-    const file = (<HTMLInputElement>fileInput.target).files[0];
-    const fileName = file.name;
-    this.fileNameOutput = fileName;
-    this.getText(fileName);
-  }
-
-  // getImage(): string {
-  //   return url(this.fileNameOutput);
-  // }
 
 }

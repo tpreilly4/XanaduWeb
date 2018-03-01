@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   headerTitle = '...';
 
-  constructor(public afAuth: AngularFireAuth) {
-  }
+  constructor(public afAuth: AngularFireAuth) {}
+
   login() {
     if (this.afAuth.auth.currentUser == null) {
       this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
