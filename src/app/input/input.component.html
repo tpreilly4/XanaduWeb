@@ -1,9 +1,16 @@
 
 <div>
 
-  <p id="uploadHeader">Upload Your File</p>
+  <p class="uploadHeader">{{ tesseractProgressName }}</p>
+  <p class="uploadHeader">{{ tesseractProgress }}</p>
 
-  <div id="uploadBox"></div>
+  <div id="uploadBox">
+    <button id="get_file"
+            (click)="getPhoto()" >
+      <img src="assets/uploadImage.jpg" id="inputImage" alt="your image"/>
+    </button>
+    <input id="my_file" type="file" (change)="getPath($event)">
+  </div>
 
 </div>
 

@@ -10,6 +10,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import { HeaderComponent } from './header/header.component';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HeaderComponent } from './header/header.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

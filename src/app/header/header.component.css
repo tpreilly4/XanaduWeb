@@ -3,13 +3,80 @@ div {
   /*
   Height and line-height have to match
    */
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  grid-template-rows: auto;
   height: 100px;
   line-height: 100px;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
+  /*margin: 0 auto;*/
   text-align: center;
   /*border: solid black 1px;*/
 
   color: #76D38F;
   font-family: Lato;
+  /*background-color: pink;*/
+  padding: 0px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  /*border: solid green 1px;*/
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 0;
+  justify-items: center;
+}
+
+.middle {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /*border: solid black 1px;*/
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  /*border: solid green 1px;*/
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin: 0;
+  justify-items: center;
+}
+
+.rightButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-shadow:none !important;
+  border:none !important;
+  box-shadow:none !important;
+  cursor: pointer;
+}
+
+.leftButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-shadow:none !important;
+  border:none !important;
+  box-shadow:none !important;
+  cursor: pointer;
+}
+
+.leftButton:hover {
+  background-color: red;
+  color: white;
+}
+
+.rightButton:hover {
+  background-color: green;
+  color: white;
 }
