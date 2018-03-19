@@ -10,6 +10,11 @@ import { DataService } from 'app/data.service';
 })
 export class InputComponent implements OnInit {
 
+  analysisStarted = false;
+  stepOneComplete = false;
+  stepTwoComplete = false;
+  stepThreeComplete = false;
+
   tesseractProgressName = '...';
   tesseractProgress = 'Upload an Image';
 
@@ -31,8 +36,20 @@ export class InputComponent implements OnInit {
         if (p.progress == null) {
           // continue
         } else {
+          this.analysisStarted = true;
           this.tesseractProgressName = p.status;
           this.tesseractProgress = p.progress.toString();
+          if (this.tesseractProgressName === 'initializing api') {
+            this.stepOneComplete = true;
+          }
+          if (this.tesseractProgressName === 'recognizing text' && this.stepTwoComplete === false) {
+            this.stepTwoComplete = true;
+          }
+          if (this.tesseractProgressName === 'recognizing text' &&
+            this.stepTwoComplete === true &&
+            this.tesseractProgress === '1') {
+            this.stepThreeComplete = true;
+          }
         }
       }.bind(this))
       .then(function(result) {
