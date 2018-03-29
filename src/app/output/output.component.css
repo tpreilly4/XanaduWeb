@@ -1,9 +1,10 @@
 
 div {
-  height: 200px;
+  height: 100%;
   width: 80%;
   border: solid black 1px;
   margin: 0 auto;
   font-family: Lato;
   margin-bottom: 20px;
+  text-align: center;
 }
