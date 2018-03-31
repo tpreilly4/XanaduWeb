@@ -15,12 +15,20 @@ export class InputComponent implements OnInit {
   stepTwoComplete = false;
   stepThreeComplete = false;
 
+  display='none';
+
   tesseractProgressName = '...';
   tesseractProgress = 'Upload an Image';
 
+  modal = document.getElementById('myModal');
+  btn = document.getElementById('myBtn');
+  span = document.getElementsByClassName('close')[0];
+
+  showStyle = false;
+
   constructor(private data: DataService) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   newMessage(input: string) {
     this.data.changeMessage(input);
@@ -29,6 +37,47 @@ export class InputComponent implements OnInit {
   getPhoto() {
     document.getElementById('my_file').click();
   }
+
+  // // MODAL START
+  //
+  // modalButtonClick() {
+  //   this.modal.style.display = 'block';
+  //   console.log("Yo");
+  // }
+  //
+  // spanButtonClick() {
+  //   this.modal.style.display = 'none';
+  // }
+  //
+  // getStyle() {
+  //   if (this.showStyle) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
+  //
+  // // MODAL END
+
+  openModal(){
+
+
+    this.display='block';
+    console.log("Hello Open");
+
+
+  }
+
+  onCloseHandled(){
+
+
+    this.display='none';
+    console.log("Hello Close");
+
+
+  }
+
+
 
   getPath(event) {
     Tesseract.recognize(event.target.files[0])
