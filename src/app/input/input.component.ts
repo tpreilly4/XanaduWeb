@@ -15,7 +15,12 @@ export class InputComponent implements OnInit {
   stepTwoComplete = false;
   stepThreeComplete = false;
 
-  display='none';
+  display = 'none';
+
+  done = false;
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
 
   tesseractProgressName = '...';
   tesseractProgress = 'Upload an Image';
@@ -29,6 +34,131 @@ export class InputComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {}
+
+  doneMethod() {
+    console.log("hit it");
+    this.done = true;
+  }
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+    console.log("something changed!");
+    console.log("CROPPING");
+    console.log("This.done: " + this.done);
+    // if (this.done) {
+    //   console.log("Starting function")
+    //   Tesseract.recognize(event.target.files[0])
+    //     .progress(function (p) {
+    //       if (p.progress == null) {
+    //         // continue
+    //       } else {
+    //         this.analysisStarted = true;
+    //         this.tesseractProgressName = p.status;
+    //         this.tesseractProgress = p.progress.toString();
+    //         if (this.tesseractProgressName === 'initializing api') {
+    //           this.stepOneComplete = true;
+    //         }
+    //         if (this.tesseractProgressName === 'recognizing text' && this.stepTwoComplete === false) {
+    //           this.stepTwoComplete = true;
+    //         }
+    //         if (this.tesseractProgressName === 'recognizing text' &&
+    //           this.stepTwoComplete === true &&
+    //           this.tesseractProgress === '1') {
+    //           this.stepThreeComplete = true;
+    //         }
+    //       }
+    //     }.bind(this))
+    //     .then(function(result) {
+    //       console.log(result.text);
+    //       this.newMessage(result.text);
+    //     }.bind(this))
+    //     .catch(err => {
+    //       console.log('Something went wrong recognizing the text');
+    //     })
+    // }
+  }
+  imageCropped(image: string) {
+    this.croppedImage = image;
+    console.log(typeof(this.croppedImage));
+    console.log("CROPPING");
+    console.log("This.done: " + this.done);
+      if (this.done) {
+        console.log("Starting function")
+        Tesseract.recognize(this.croppedImage)
+          .progress(function (p) {
+            if (p.progress == null) {
+              console.log("WHAT DA HELL")
+              // continue
+            } else {
+              this.analysisStarted = true;
+              this.tesseractProgressName = p.status;
+              this.tesseractProgress = p.progress.toString();
+              if (this.tesseractProgressName === 'initializing api') {
+                this.stepOneComplete = true;
+              }
+              if (this.tesseractProgressName === 'recognizing text' && this.stepTwoComplete === false) {
+                this.stepTwoComplete = true;
+              }
+              if (this.tesseractProgressName === 'recognizing text' &&
+                this.stepTwoComplete === true &&
+                this.tesseractProgress === '1') {
+                this.stepThreeComplete = true;
+              }
+            }
+          }.bind(this))
+          .then(function(result) {
+            console.log(result.text);
+            this.newMessage(result.text);
+          }.bind(this))
+          .catch(err => {
+            console.log('Something went wrong recognizing the text');
+          })
+      }
+  }
+  // imageCropped(event: any, image: string) {
+  //   this.croppedImage = image;
+  //   this.imageChangedEvent = event;
+  //   console.log("something changed!");
+  //   console.log("CROPPING");
+  //   console.log("This.done: " + this.done);
+  //   if (this.done) {
+  //     console.log("Starting function")
+  //     Tesseract.recognize(event.target.files[0])
+  //       .progress(function (p) {
+  //         if (p.progress == null) {
+  //           // continue
+  //         } else {
+  //           this.analysisStarted = true;
+  //           this.tesseractProgressName = p.status;
+  //           this.tesseractProgress = p.progress.toString();
+  //           if (this.tesseractProgressName === 'initializing api') {
+  //             this.stepOneComplete = true;
+  //           }
+  //           if (this.tesseractProgressName === 'recognizing text' && this.stepTwoComplete === false) {
+  //             this.stepTwoComplete = true;
+  //           }
+  //           if (this.tesseractProgressName === 'recognizing text' &&
+  //             this.stepTwoComplete === true &&
+  //             this.tesseractProgress === '1') {
+  //             this.stepThreeComplete = true;
+  //           }
+  //         }
+  //       }.bind(this))
+  //       .then(function(result) {
+  //         console.log(result.text);
+  //         this.newMessage(result.text);
+  //       }.bind(this))
+  //       .catch(err => {
+  //         console.log('Something went wrong recognizing the text');
+  //       })
+  //   }
+  // }
+  imageLoaded() {
+    // show cropper
+  }
+  loadImageFailed() {
+    // show message
+  }
 
   newMessage(input: string) {
     this.data.changeMessage(input);
