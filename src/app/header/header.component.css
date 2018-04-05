@@ -110,6 +110,7 @@ li {
 a {
   height: 100%;
   margin-left: 5px;
+  margin-right: 5px;
   font-size: 15px;
   /*border: orange dashed 4px;*/
   color: black;
@@ -140,26 +141,18 @@ a {
 }
 
 .backdrop{
-
-
   background-color:rgba(0,0,0,0.6);
-
-
   position:fixed;
-
-
   top:0;
-
-
   left:0;
-
-
   width:100%;
-
-
   height:100vh;
+}
 
-
+#LogoImage {
+  width: 400px;
+  height: 80px;
+  margin: 0;
 }
 
 .modal-body{}

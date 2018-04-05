@@ -3,7 +3,20 @@
 
   <div *ngFor="let historyItem of history" class="historyItem">
 
-    {{ historyItem }}
+    <section class="card-container">
+      <article class="card">
+        <header class="card__title">
+          <h3>History Entry #</h3>
+        </header>
+        <figure class="card__thumbnail">
+          {{ historyItem }}
+        </figure>
+        <main class="card__description">
+          'Output preview'
+        </main>
+        <a href="#" class="button">Go to entry</a>
+      </article>
+    </section>
 
   </div>
 

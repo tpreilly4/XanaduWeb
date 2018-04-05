@@ -2,17 +2,48 @@
 div {
   height: 200px;
   width: 80%;
-  border: solid black 1px;
-  margin: 0 auto;
+  /*border: solid black 1px;*/
+  margin: 10%;
   font-family: Lato;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 20vw 20vw 20vw;
+  grid-template-rows: 20vh 20vh 20vh;
 }
 
 .historyItem {
-  line-height: 100%;
+  line-height: 40%;
   height: 80%;
   width: 100%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+}
+
+.card-container{
+  display: grid;
+}
+
+.card {
+  box-shadow: 3px 1px 5px #555;
+  background-color: azure;
+  margin: 2%;
+}
+
+.card__title {
+  font-size: 2rem;
+  padding: .5rem;
+  text-overflow: clip;
+}
+
+.card__description {
+  padding: .5rem;
+  line-height: 1.6em;
+}
+
+.button {
+  display: grid;
+  background-color: #3F4942;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s ease-out;
 }
