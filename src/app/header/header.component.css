@@ -84,9 +84,8 @@ div {
 /*}*/
 
 .navbar-brand {
-  font-size: 25px;
+  font-size: 6rem;
   color: black;
-  /*border: solid purple 2px;*/
   margin-top: 10px;
 }
 
@@ -110,18 +109,19 @@ li {
 a {
   height: 100%;
   margin-left: 5px;
-  font-size: 15px;
+  margin-right: 5px;
+  font-size: 1.6rem;
+  font-family: Tahoma;
   /*border: orange dashed 4px;*/
   color: black;
 }
 
 .headerLink {
-  padding: 0px;
   line-height: 100%;
   /*border:solid 2px red;*/
   height: 100%;
   width: 100%;
-  margin-left: 5px;
+  margin-left: inherit;
 }
 
 @media (max-width: 767px) {
@@ -138,6 +138,24 @@ a {
     margin-left: 15px;
   }
 }
+
+.backdrop{
+  background-color:rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+}
+
+#LogoImage {
+  width: 400px;
+  height: 80px;
+  margin: 0;
+}
+
+.modal-body{}
+
 
 /*.linkBorderRight {*/
   /*border-right: 1px lightgray solid;*/

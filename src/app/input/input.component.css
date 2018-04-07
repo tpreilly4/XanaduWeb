@@ -53,8 +53,9 @@ div span {
 #uploadBox {
   line-height: 0px;
   /*border: 1px dashed black;*/
-  width: 50%;
+  width: 75%;
   height: 200px;
+  padding-top: 5%;
 }
 
 .uploadHeader {

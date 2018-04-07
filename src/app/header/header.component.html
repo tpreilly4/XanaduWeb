@@ -20,15 +20,88 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Xanadu OCR</a>
+      <a class="navbar-brand" href="#">XANADU</a>
     </div>
     <div class="navbar-right collapse navbar-collapse" id="example-navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active linkBorderRight linkBorderLeft"><span class="headerLink"><i class="fas fa-wrench fa-2x"></i><a href="#">OCR</a></span></li>
-        <li class="linkBorderRight"><span class="headerLink"><i class="far fa-question-circle fa-2x"></i><a href="#">About</a></span></li>
+        <li class="linkBorderRight"><span class="headerLink"><i class="far fa-question-circle fa-2x"></i><button type="button"  (click)="openModal()">About</button></span></li>
         <li class="linkBorderRight"><span class="headerLink"><i class="far fa-user fa-2x"></i><a href="#">Account</a></span></li>
       </ul>
     </div>
   </nav>
+
+  <!--MODAL START-->
+  <!-- open a modal window by clicking button-->
+
+
+  <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bootstrapModel">click to open</button>-->
+
+  <div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+  <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Model Title</h4>
+        </div>
+
+
+          <div class="modal-body">
+          <!--<img src="assets/uploadImage.jpg" style="height: 200px; width: 200px;"> -->
+
+            <h1>Xanadu</h1>
+            <p>
+              XANADU is a software application that gathers and applies many facets of modern software in order to provide a service based around the use of Optical Character Recognition.
+            </p>
+
+            <ul>
+              Step one
+            </ul>
+
+            <ul>
+              Step two
+            </ul>
+
+            <ul>
+              Step three
+            </ul>
+
+            <ul>
+              Step four
+            </ul>
+
+            <ul>
+              Step five
+            </ul>
+
+            <ul>
+              Step six
+            </ul>
+
+            <ul>
+              Step seven
+            </ul>
+
+            <p>
+              Created by
+
+            </p>
+
+            <p>
+            Luke “I am your Father” Tomkus, Anthony “The Business” Hamill, Matthew “Big Mac” Fullerton, Thomas “Did you assume” Reilly, and William “Old Man” Jones
+            </p>
+
+          </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+        </div>
+
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal !-->
+  <!--MODAL END-->
 
 </div>
