@@ -84,9 +84,8 @@ div {
 /*}*/
 
 .navbar-brand {
-  font-size: 25px;
+  font-size: 6rem;
   color: black;
-  /*border: solid purple 2px;*/
   margin-top: 10px;
 }
 
@@ -111,18 +110,18 @@ a {
   height: 100%;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 15px;
+  font-size: 1.6rem;
+  font-family: Tahoma;
   /*border: orange dashed 4px;*/
   color: black;
 }
 
 .headerLink {
-  padding: 0px;
   line-height: 100%;
   /*border:solid 2px red;*/
   height: 100%;
   width: 100%;
-  margin-left: 5px;
+  margin-left: inherit;
 }
 
 @media (max-width: 767px) {

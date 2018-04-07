@@ -1,13 +1,15 @@
 
 div {
-  height: 200px;
-  width: 80%;
-  /*border: solid black 1px;*/
-  margin: 10%;
+  height: 50%;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
   font-family: Lato;
+  font-size: inherit;
   display: grid;
-  grid-template-columns: 20vw 20vw 20vw;
-  grid-template-rows: 20vh 20vh 20vh;
+  padding: 1rem;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 10fr));;
+  grid-gap: 1rem;
 }
 
 .historyItem {
@@ -17,29 +19,27 @@ div {
   /*border: 1px solid black;*/
 }
 
-.card-container{
-  display: grid;
-}
 
 .card {
   box-shadow: 3px 1px 5px #555;
-  background-color: azure;
-  margin: 2%;
+  background-color: white;
+  padding: 2%;
 }
 
 .card__title {
-  font-size: 2rem;
-  padding: .5rem;
+  padding-top: .1rem;
+  font-size: 5em;
   text-overflow: clip;
 }
 
 .card__description {
-  padding: .5rem;
-  line-height: 1.6em;
+  font-size: 1em;
+  padding: 5%;
+  line-height: 1.5em;
 }
 
 .button {
-  display: grid;
+  display: block;
   background-color: #3F4942;
   padding: 10px 20px;
   color: white;
