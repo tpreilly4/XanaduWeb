@@ -28,6 +28,7 @@
     "firebase": "^4.10.0",
     "posterize": "^1.0.2",
     "rxjs": "^5.1.0",
+    "tesseract.js": "^1.0.10",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {

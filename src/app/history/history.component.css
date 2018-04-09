@@ -1,18 +1,47 @@
-
 div {
-  height: 200px;
-  width: 80%;
-  border: solid black 1px;
+  height: 50%;
+  width: 90%;
   margin: 0 auto;
+  text-align: center;
   font-family: Lato;
+  font-size: inherit;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  padding: 1rem;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 10fr));;
+  grid-gap: 1rem;
 }
 
 .historyItem {
-  line-height: 100%;
+  line-height: 40%;
   height: 80%;
   width: 100%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+}
+
+.card {
+  box-shadow: 3px 1px 5px #555;
+  background-color: white;
+  padding: 2%;
+}
+
+.card__title {
+  padding-top: .1rem;
+  font-size: 5em;
+  text-overflow: clip;
+}
+
+.card__description {
+  font-size: 1em;
+  padding: 5%;
+  line-height: 1.5em;
+}
+
+.button {
+  display: block;
+  background-color: #3F4942;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s ease-out;
 }

@@ -6,13 +6,13 @@
   <div class="panel panel-default">
     <div class="panel-heading">Get Your OCR On</div>
     <div class="panel-body">
-      <div class="step" *ngIf="analysisStarted">Getting Hamsters <span *ngIf="!stepOneComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
+      <div class="step" *ngIf="analysisStarted"> Spawning Hamsters... <span *ngIf="!stepOneComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
         <i *ngIf="stepOneComplete" class="fas fa-check fa-2x"></i>
       </div>
-      <div class="step" *ngIf="stepOneComplete">Getting Wheels <span *ngIf="!stepTwoComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
+      <div class="step" *ngIf="stepOneComplete"> Building Wheels... <span *ngIf="!stepTwoComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
         <i *ngIf="stepTwoComplete" class="fas fa-check fa-2x"></i>
       </div>
-      <div class="step" *ngIf="stepTwoComplete">Spinning Hamsters <span *ngIf="!stepThreeComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
+      <div class="step" *ngIf="stepTwoComplete"> Hamsters Spinning... <span *ngIf="!stepThreeComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
         <i *ngIf="stepThreeComplete" class="fas fa-check fa-2x"></i>
       </div>
     </div>
