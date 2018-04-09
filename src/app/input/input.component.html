@@ -4,7 +4,7 @@
   <!--<button (click)="newMessage()">Button to click</button>-->
 
   <div class="panel panel-default">
-    <div class="panel-heading">Get Your OCR On</div>
+    <div class="panel-heading">OCR</div>
     <div class="panel-body">
       <div class="step" *ngIf="analysisStarted"> Spawning Hamsters... <span *ngIf="!stepOneComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
         <i *ngIf="stepOneComplete" class="fas fa-check fa-2x"></i>
@@ -18,21 +18,43 @@
     </div>
   </div>
 
-  <div id="uploadBox">
-    <button id="get_file"
-            (click)="getPhoto()" >
-      <img src="assets/uploadImage.jpg" id="inputImage" alt="your image"/>
-    </button>
-    <input id="my_file" type="file" (change)="getPath($event)">
-  </div>
+  <!--<div id="uploadBox">-->
+    <!--<button id="get_file"-->
+            <!--(click)="getPhoto()" >-->
+      <!--<img src="assets/uploadImage.jpg" id="inputImage" alt="your image"/>-->
+    <!--</button>-->
+    <!--<input id="my_file" type="file" (change)="getPath($event)">-->
+  <!--</div>-->
 
 
-  <!--MODAL START-->
-  <!-- open a modal window by clicking button-->
+  <!--&lt;!&ndash;MODAL START&ndash;&gt;-->
+  <!--&lt;!&ndash; open a modal window by clicking button&ndash;&gt;-->
 
 
-  <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bootstrapModel">click to open</button>-->
-  <button type="button" class="btn btn-info btn-lg" (click)="openModal()">Upload Photo</button>
+  <!--&lt;!&ndash;<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bootstrapModel">click to open</button>&ndash;&gt;-->
+  <!--<button type="button" class="btn btn-info btn-lg" (click)="openModal()">Upload Photo</button>-->
+
+  <!--<input style="border: black solid 2px; width: 100%; height: 100%;"-->
+         <!--type="file"-->
+         <!--(change)="fileChangeEvent($event)"/>-->
+
+  <input type="file" name="file" id="file" class="inputfile" (change)="fileChangeEvent($event)" />
+  <label for="file">Choose a file</label>
+
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="false"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="512"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+
+  <!--<img [src]="croppedImage" />-->
+
+  <button (click)="doneMethod()">Click When Done Cropping</button>
 
   <div class="backdrop" [ngStyle]="{'display':display}"></div>
 
@@ -46,6 +68,8 @@
 
 
         <div class="modal-body">
+          <img src="assets/uploadImage.jpg" style="height: 200px; width: 200px;">
+          <!--<div class="demo" style="height: 200px; width: 200px; border: solid black 2px;"></div>-->
           <img src="assets/uploadImage.jpg" style="height: 200px; width: 200px;"> -->
         </div>
 
