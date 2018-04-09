@@ -78,7 +78,6 @@ export class InputComponent implements OnInit {
   }
 
 
-
   getPath(event) {
     Tesseract.recognize(event.target.files[0])
       .progress(function (p) {
