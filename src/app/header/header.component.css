@@ -162,9 +162,42 @@ a {
 
 }
 
-.modal-body{}
+.modal-body
+{
 
+  background-color: white;
+  text-color: black;
+  font-size: 14px;
+}
 
+.modal-body h1
+{
+  text-align: center;
+}
+
+.modal-body p
+{
+  text-indent: 25px;
+
+}
+
+.modal-body button
+{
+  text-align: center;
+  font-size: 200%;
+  width: 25%;
+  height: 25%;
+}
+
+.modal-body div
+{
+  text-align: center;
+}
+
+.modal-footer div
+{
+
+}
 /*.linkBorderRight {*/
   /*border-right: 1px lightgray solid;*/
 /*}*/

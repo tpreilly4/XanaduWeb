@@ -10,7 +10,8 @@ import * as firebase from 'firebase/app';
 })
 export class HeaderComponent implements OnInit {
 
-  display='none';
+  display1='none';
+  display2='none';
   headerTitle = '...';
 
   constructor(public afAuth: AngularFireAuth) {}
@@ -45,26 +46,41 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     if (this.afAuth.auth.currentUser == null) {
-      this.headerTitle = 'Please sign in!';
+      this.headerTitle = 'please sign in!';
     } else {
       this.headerTitle = this.afAuth.auth.currentUser.email;
     }
   }
 
-  openModal(){
+  openModal1(){
 
 
-    this.display='block';
-    console.log("Hello Open");
+    this.display1='block';
+    console.log("modal 1 open");
 
 
   }
 
-  onCloseHandled(){
+  openModal2() {
+    this.display2='block';
+    console.log('modal 2 open');
+  }
 
 
-    this.display='none';
-    console.log("Hello Close");
+  onCloseHandled1(){
+
+
+    this.display1='none';
+    console.log("modal 1 close");
+
+
+  }
+
+  onCloseHandled2(){
+
+
+    this.display2='none';
+    console.log('modal 2 close');
 
 
   }
