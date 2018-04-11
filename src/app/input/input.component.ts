@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Tesseract from 'tesseract.js'
 import { DataService } from 'app/data.service';
+import najax from 'najax';
 
 @Component({
   selector: 'app-input',
@@ -18,6 +19,7 @@ export class InputComponent implements OnInit {
   display = 'none';
 
   done = false;
+  useNoteshrink = false;
 
   imageChangedEvent: any = '';
   croppedImage: any = '';
@@ -83,6 +85,11 @@ export class InputComponent implements OnInit {
     console.log("CROPPING");
     console.log("This.done: " + this.done);
       if (this.done) {
+        // If useNoteshrink is true, send off the image to the Noteshrink server.
+        if (this.useNoteshrink) {
+          console.log('Attempting Noteshrink')
+          this.runNoteshrink()
+        }
         console.log("Starting function")
         Tesseract.recognize(this.croppedImage)
           .progress(function (p) {
@@ -114,6 +121,19 @@ export class InputComponent implements OnInit {
             console.log('Something went wrong recognizing the text');
           })
       }
+  }
+  runNoteshrink(){
+    var formData = new FormData()
+    formData.append('fileToUpload[]', this.croppedImage)
+    najax.ajax({
+      url: 'http://104.236.24.185/process.php',
+      type: 'POST',
+      data: formData,
+      contentType: 'multipart/form-data',
+      success: function(data){
+        this.croppedImage = data
+      }
+    })
   }
   // imageCropped(event: any, image: string) {
   //   this.croppedImage = image;
@@ -205,6 +225,15 @@ export class InputComponent implements OnInit {
     console.log("Hello Close");
 
 
+  }
+
+  toggleNoteshrink(){
+    if(this.useNoteshrink === false){
+      this.useNoteshrink = true;
+    }
+    if(this.useNoteshrink === true){
+      this.useNoteshrink = false;
+    }
   }
 
 
