@@ -62,9 +62,9 @@
   ></image-cropper>
 
   <!--<img [src]="croppedImage" />-->
-  <!--<button (click)="doneMethod()">Click When Done Cropping</button>-->
-
-  </div>
+  <input type="checkbox" id="UseNoteshrink" value="off" (change)="toggleNoteshrink()">
+  <label for="UseNoteshrink">Use Advanced Processing (JPG and PNG ONLY)</label>
+  <button (click)="doneMethod()">Click When Done Cropping</button>
 
   <div class="backdrop" [ngStyle]="{'display':display}"></div>
 
