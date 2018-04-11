@@ -4,7 +4,7 @@
   <!--<button (click)="newMessage()">Button to click</button>-->
 
   <div class="panel panel-default">
-    <div class="panel-heading">OCR</div>
+    <div class="panel-heading">Xanadu</div>
     <div class="panel-body">
       <div class="step" *ngIf="analysisStarted"> Spawning Hamsters... <span *ngIf="!stepOneComplete"> ({{ tesseractProgress | percent:'.1-2' }})</span>
         <i *ngIf="stepOneComplete" class="fas fa-check fa-2x"></i>
@@ -38,14 +38,23 @@
          <!--type="file"-->
          <!--(change)="fileChangeEvent($event)"/>-->
 
+  <div id="inputContainer">
+
+    <div id="fileInputButton">
   <input type="file" name="file" id="file" class="inputfile" (change)="fileChangeEvent($event)" />
   <label for="file">Choose a file</label>
+    </div>
+
+    <div id="noteShrinkButton">
+      <input type="checkbox" id="UseNoteshrink" value="off">
+      <label for="UseNoteshrink"> Advanced Processing</label>
+    </div>
+
+    <hr>
 
   <image-cropper
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="false"
-    [aspectRatio]="4 / 3"
-    [resizeToWidth]="512"
     format="png"
     (imageCropped)="imageCropped($event)"
     (imageLoaded)="imageLoaded()"
@@ -53,7 +62,7 @@
   ></image-cropper>
 
   <!--<img [src]="croppedImage" />-->
-  <input type="checkbox" id="UseNoteshrink" value="off">
+  <input type="checkbox" id="UseNoteshrink" value="off" (change)="toggleNoteshrink()">
   <label for="UseNoteshrink">Use Advanced Processing (JPG and PNG ONLY)</label>
   <button (click)="doneMethod()">Click When Done Cropping</button>
 
