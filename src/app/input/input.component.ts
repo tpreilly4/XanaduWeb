@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Tesseract from 'tesseract.js'
 import { DataService } from 'app/data.service';
-import najax from 'najax';
+import * as najax from 'najax'
 
 @Component({
   selector: 'app-input',
@@ -123,13 +123,12 @@ export class InputComponent implements OnInit {
       }
   }
   runNoteshrink(){
-    var formData = new FormData()
+    let formData = new FormData()
     formData.append('fileToUpload[]', this.croppedImage)
-    najax.ajax({
+    najax({
       url: 'http://104.236.24.185/process.php',
       type: 'POST',
       data: formData,
-      contentType: 'multipart/form-data',
       success: function(data){
         this.croppedImage = data
       }
@@ -228,11 +227,13 @@ export class InputComponent implements OnInit {
   }
 
   toggleNoteshrink(){
-    if(this.useNoteshrink === false){
+    if (this.useNoteshrink === false) {
       this.useNoteshrink = true;
+      console.log('Noteshrink now active')
     }
-    if(this.useNoteshrink === true){
+    else if (this.useNoteshrink === true) {
       this.useNoteshrink = false;
+      console.log('Noteshrink now inactive')
     }
   }
 
