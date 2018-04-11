@@ -1,4 +1,30 @@
 
+#inputContainer {
+  border: solid black 3px;
+  display: grid;
+  grid-template-rows: 1;
+  grid-template-columns: minmax(250px, 1fr);
+}
+
+#fileInputButton {
+  width: 100%;
+}
+
+#fileInputButton label {
+  width: 100%;
+  height: 100%;
+  grid-column-start: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+#noteShrinkButton {
+  width: 100%;
+  height: 100%;
+  border-bottom: solid black 1px;
+  margin-top: -20px;
+}
+
 div {
   /*
   Height and line-height have to match
@@ -131,11 +157,11 @@ div span {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+  font-weight: normal;
 }
 
 .inputfile + label {
   font-size: 1.25em;
-  font-weight: 700;
   color: white;
   background-color: black;
   display: inline-block;
@@ -143,7 +169,8 @@ div span {
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-  background-color: red;
+  background-color: #738678;
+  border-bottom: solid black 1px;
 }
 
 .inputfile + label {

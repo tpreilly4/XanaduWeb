@@ -18,7 +18,7 @@ export class InputComponent implements OnInit {
 
   display = 'none';
 
-  done = false;
+  done = true;
   useNoteshrink = false;
 
   imageChangedEvent: any = '';
@@ -84,7 +84,7 @@ export class InputComponent implements OnInit {
     console.log(typeof(this.croppedImage));
     console.log("CROPPING");
     console.log("This.done: " + this.done);
-      if (this.done) {
+      // if (this.done) {
         // If useNoteshrink is true, send off the image to the Noteshrink server.
         if (this.useNoteshrink) {
           console.log('Attempting Noteshrink')
@@ -114,13 +114,17 @@ export class InputComponent implements OnInit {
             }
           }.bind(this))
           .then(function(result) {
-            console.log(result.text);
-            this.newMessage(result.text);
+            if (this.done) {
+              console.log(result.text);
+              this.newMessage(result.text);
+            } else {
+              this.newMessage('Determing output...')
+            }
           }.bind(this))
           .catch(err => {
             console.log('Something went wrong recognizing the text');
           })
-      }
+      // }
   }
   runNoteshrink(){
     var formData = new FormData()
@@ -260,8 +264,12 @@ export class InputComponent implements OnInit {
         }
       }.bind(this))
       .then(function(result) {
-        console.log(result.text);
-        this.newMessage(result.text);
+        if (this.done) {
+          console.log(result.text);
+          this.newMessage(result.text);
+        } else {
+          this.newMessage('Determing output...')
+        }
       }.bind(this))
       .catch(err => {
         console.log('Something went wrong recognizing the text');
