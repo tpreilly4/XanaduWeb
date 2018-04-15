@@ -1,4 +1,10 @@
 
+.icon-bar {
+  color: white;
+  background-color: white;
+  border: solid white 1px;
+}
+
 div {
   /*!**/
   /*Height and line-height have to match*/

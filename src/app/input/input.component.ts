@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import * as Tesseract from 'tesseract.js'
 import { DataService } from 'app/data.service';
 import * as najax from 'najax'
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseService } from '../firebase.service';
+import { Response } from "@angular/http";
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-input',
@@ -11,10 +15,14 @@ import * as najax from 'najax'
 })
 export class InputComponent implements OnInit {
 
+  alreadyCalled = false;
+
   analysisStarted = false;
   stepOneComplete = false;
   stepTwoComplete = false;
   stepThreeComplete = false;
+
+  saved = false;
 
   display = 'none';
 
@@ -33,7 +41,12 @@ export class InputComponent implements OnInit {
 
   showStyle = false;
 
-  constructor(private data: DataService) { }
+
+  constructor(public db: AngularFireDatabase,
+              private data: DataService,
+              public afAuth: AngularFireAuth,
+              private firebaseService: FirebaseService) {
+  }
 
   ngOnInit() {}
 
@@ -79,7 +92,35 @@ export class InputComponent implements OnInit {
     //     })
     // }
   }
+
+  getData() {
+    this.firebaseService.getItem()
+      .subscribe(
+        (response: Response) => {
+          const data = response.json();
+          console.log("PLEASE WORK: " + data)
+        }
+      );
+  }
+
+  saveFunction() {
+    this.saved = true;
+    // if (this.saved) {
+    //   const uid = this.afAuth.auth.currentUser.uid.toString();
+    //   const email = this.afAuth.auth.currentUser.email.toString();
+    //   const items = this.db.database.ref('/users/' + uid + '/');
+    //   items.push('new item');
+    // }
+  }
+
+  //users
+    //uid
+        //history
+          //push
+
   imageCropped(image: string) {
+    if (!this.alreadyCalled) {
+      this.alreadyCalled = true;
     this.croppedImage = image;
     console.log(typeof(this.croppedImage));
     console.log("CROPPING");
@@ -110,6 +151,7 @@ export class InputComponent implements OnInit {
                 this.stepTwoComplete === true &&
                 this.tesseractProgress === '1') {
                 this.stepThreeComplete = true;
+                this.alreadyCalled = false;
               }
             }
           }.bind(this))
@@ -117,16 +159,33 @@ export class InputComponent implements OnInit {
             if (this.done) {
               console.log(result.text);
               this.newMessage(result.text);
+              if (this.saved) {
+                console.log("HERE")
+                const uid = this.afAuth.auth.currentUser.uid.toString();
+                const items = this.db.database.ref('/users/' + uid + '/');
+                items.push(result.text);
+                this.saved = false;
+                // window.location.reload();
+              }
             } else {
               this.newMessage('Determing output...')
             }
           }.bind(this))
           .catch(err => {
             console.log('Something went wrong recognizing the text');
-          })
+          });
+      if (this.afAuth.auth.currentUser == null) {
+          console.log("No one logged in -- cool");
+      } else {
+        console.log(this.afAuth.auth.currentUser.uid + " is currently logged in (uid)");
+        console.log(this.afAuth.auth.currentUser.email + " is currently logged in (email)");
+        this.getData();
+      }
+    }
       // }
   }
-  runNoteshrink(){
+
+  runNoteshrink() {
     let formData = new FormData()
     formData.append('fileToUpload[]', this.croppedImage)
     najax({
