@@ -54,11 +54,22 @@ export class HistoryComponent implements OnInit {
 
   getRightText(input: string): string {
     console.log(".......: " + input);
-    console.log("TYPE: " + typeof history)
-    for (let i = 0; i < history.length; i++) {
-      console.log(history)
+    console.log("TYPE: " + typeof this.history);
+    for (let i = 0; i < this.history.length; i++) {
+      console.log(this.history);
+      console.log("HISTORY SIZE: " + this.history.length);
+      console.log("FULL TEXT HISTORY SIZE: " + this.fullTextHistory.length);
+      console.log("--- TEXT HISTORY ---");
+      for (let j = 0; j < history.length; j++) {
+        console.log(j + ": " + history[j]);
+
+      }
+      console.log("--- FULL TEXT HISTORY ---");
+      for (let j = 0; j < this.fullTextHistory.length; j++) {
+        console.log(j + ": " + this.fullTextHistory[j]);
+      }
       let preview = this.fullTextHistory[i].substring(0, 10);
-      if (this.fullTextHistory[i].length > 15) {
+      if (this.fullTextHistory[i].length > 10) {
         preview = preview + '...';
       }
       console.log("Comparing: " + preview + " to " + input);
@@ -94,13 +105,13 @@ export class HistoryComponent implements OnInit {
                   var keyItem = itemSnapshot.key;
                   var itemValue = itemSnapshot.val();
                   console.log("ITEM VALUE: " + itemValue);
-                  this.fullTextHistory.push(itemValue);
                   console.log("YAYYYY: " + itemValue);
                   let preview = itemValue.substring(0, 10);
-                  if (itemValue.length > 15) {
+                  if (itemValue.length > 10) {
                     preview = preview + '...';
                   }
                   this.history.push(preview);
+                  this.fullTextHistory.push(itemValue);
                   // this.fullTextHistory.push(itemValue);
                 }.bind(this))
               }

@@ -48,8 +48,8 @@
     <div id="noteShrinkButton">
       <input type="checkbox" id="UseNoteshrink" value="off" (change)="toggleNoteshrink()">
       <label for="UseNoteshrink">Advanced Processing</label>
-      <button (click)="saveFunction()">Save Text</button>
-      <!--<button (click)="doneMethod()">Click When Done Cropping</button>-->
+      <button (click)="doneMethod()" id="saveTextButton">{{ analyzeMessage }}</button>
+      <button (click)="saveFunction()" id="saveTextButton">{{ saved ? 'Save Text = True' : 'Save Text = False' }}</button>
     </div>
 
     <hr>

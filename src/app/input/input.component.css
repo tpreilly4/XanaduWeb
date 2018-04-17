@@ -111,6 +111,13 @@ div span {
   margin: 0;
 }
 
+#saveTextButton {
+  width: 200px;
+  height: 40px;
+  line-height: 20px;
+  margin-left: 20px;
+}
+
 .step span {
   padding: 0px;
   line-height: 50px;

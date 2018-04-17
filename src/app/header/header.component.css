@@ -196,6 +196,13 @@ a {
 {
 
 }
+
+.linkBorderRight button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 19px;
+}
 /*.linkBorderRight {*/
   /*border-right: 1px lightgray solid;*/
 /*}*/
