@@ -10,7 +10,7 @@ div {
   /*!*height: 100px;*!*/
   /*!*line-height: 100px;*!*/
   /*width: 100%;*/
-  /*!*margin: 0 auto;*!*/
+  /*margin: 0 auto;*/
   /*text-align: center;*/
   /*!*border: solid black 1px;*!*/
 
@@ -85,8 +85,8 @@ div {
 
 .navbar-brand {
   font-size: 6rem;
-  color: black;
-  margin-top: 10px;
+  color: white;
+  margin-top: 12px;
 }
 
 .navbar-toggle {
@@ -99,18 +99,23 @@ div {
 }
 
 li {
-  /*border: solid purple 2px;*/
-  /*border: solid gray 1px;*/
   height: 50px;
   line-height: 50px;
   padding-right: 10px;
 }
 
+/*li button {*/
+  /*float: left;*/
+  /*font-size: 1.6rem;*/
+  /*width:105%;*/
+  /*padding: 5%*/
+/*}*/
+
 a {
   height: 100%;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   font-family: Tahoma;
   /*border: orange dashed 4px;*/
   color: black;
@@ -118,25 +123,46 @@ a {
 
 .headerLink {
   line-height: 100%;
-  /*border:solid 2px red;*/
+  font-size: 1.7rem;
+  /*padding: 2.5px;*/
+}
+
+
+.headerLink button{
+  width: 150px;
+  /*padding: 2.5px;*/
+  transition: .3s ease-out;
+}
+
+.headerLink button:hover{
+  background: #76D38F;
+  /*opacity: .5;*/
+  color: gainsboro;
+}
+
+.i{
   height: 100%;
-  width: 100%;
-  margin-left: inherit;
+  width: 200%;
 }
 
 @media (max-width: 767px) {
   #example-navbar-collapse {
     /*border: solid blue 2px;*/
     margin-left: 15px;
-    padding: 0px;
+    padding: 100px;
     margin-bottom: 0px;
   }
   #example-navbar-collapse ul li {
-    margin-left: 20px;
     width: 100%;
     height: 100%;
     margin-left: 15px;
+    margin-bottom: 50px;
+    position-: center;
   }
+}
+
+.icon-bar{
+  /*color: white;*/
 }
 
 .backdrop{
@@ -145,7 +171,7 @@ a {
   top:0;
   left:0;
   width:100%;
-  height:100vh;
+  height:100%;
 }
 
 #LogoImage {
@@ -156,7 +182,6 @@ a {
 
 .modal-body
 {
-
   background-color: white;
   text-color: black;
   font-size: 14px;
@@ -170,13 +195,12 @@ a {
 .modal-body p
 {
   text-indent: 25px;
-
 }
 
 .modal-body button
 {
   text-align: center;
-  font-size: 200%;
+  font-size: 300%;
   width: 25%;
   height: 25%;
 }
@@ -190,8 +214,10 @@ a {
 {
 
 }
-/*.linkBorderRight {*/
+
+/*.linkBorderRight.headerLink button {*/
   /*border-right: 1px lightgray solid;*/
+  /*width: 500px;*/
 /*}*/
 
 /*.linkBorderLeft {*/

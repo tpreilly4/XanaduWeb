@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -53,12 +52,8 @@ export class HeaderComponent implements OnInit {
   }
 
   openModal1(){
-
-
     this.display1='block';
     console.log("modal 1 open");
-
-
   }
 
   openModal2() {
@@ -66,23 +61,14 @@ export class HeaderComponent implements OnInit {
     console.log('modal 2 open');
   }
 
-
   onCloseHandled1(){
-
-
     this.display1='none';
     console.log("modal 1 close");
-
-
   }
 
   onCloseHandled2(){
-
-
     this.display2='none';
     console.log('modal 2 close');
-
-
   }
 
 }
