@@ -1,4 +1,10 @@
 
+.icon-bar {
+  color: white;
+  background-color: white;
+  border: solid white 1px;
+}
+
 div {
   /*!**/
   /*Height and line-height have to match*/
@@ -215,7 +221,13 @@ a {
 
 }
 
-/*.linkBorderRight.headerLink button {*/
+.linkBorderRight button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 19px;
+}
+
   /*border-right: 1px lightgray solid;*/
   /*width: 500px;*/
 /*}*/

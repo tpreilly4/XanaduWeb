@@ -46,6 +46,10 @@ div {
   transition: .3s ease-out;
 }
 
-.button:hover{
-  background-color: #738678;
+
+/*.button:hover{*/
+  /*background-color: #738678;*/
+
+#retrieveButton {
+  width: 100%;
 }

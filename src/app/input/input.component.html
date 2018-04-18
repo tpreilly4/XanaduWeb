@@ -47,7 +47,9 @@
 
     <div id="noteShrinkButton">
       <input type="checkbox" id="UseNoteshrink" value="off" (change)="toggleNoteshrink()">
-      <label for="UseNoteshrink">Use Advanced Processing (JPG and PNG ONLY)</label>
+      <label for="UseNoteshrink">Advanced Processing</label>
+      <button (click)="doneMethod()" id="saveTextButton">{{ analyzeMessage }}</button>
+      <button (click)="saveFunction()" id="saveTextButton">{{ saved ? 'Save Text = True' : 'Save Text = False' }}</button>
     </div>
 
     <hr>
